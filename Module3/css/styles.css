@@ -35,10 +35,6 @@ body {
     text-align:center
 }
 
-.navbar-header button.navbar-toggle, .navbar-header .icon-bar {
-    border: 1px solid #BD554C;
-}
-
 .navbar-header button.navbar-toggle{
     clear: both;
     margin-top: -30px;
@@ -50,4 +46,5 @@ body {
 
 #home-tiles > div {
     background-color: #356d64;
+    margin-bottom: 15px;
 }

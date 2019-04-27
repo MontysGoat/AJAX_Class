@@ -19,14 +19,14 @@
       templateUrl: 'src/menuApp/templates/home.template.html'
     })
   
-    // Premade list page
+    // Categories Page
     .state('categories', {
       url: '/categories',
       templateUrl: 'src/menuApp/templates/categories.template.html',
       controller: 'CategoriesController as ctrl',
       resolve: {
         categories: ['MenuDataService', function (MenuDataService) {
-          return MenuDataService.getCategories();
+          return MenuDataService.getAllCategories();
         }]
       }
     });

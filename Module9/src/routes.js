@@ -22,21 +22,26 @@
     // Categories Page
     .state('categories', {
       url: '/categories',
-      templateUrl: 'src/menuApp/templates/categories.template.html',
+      templateUrl: 'src/menuapp/templates/categories.template.html',
       controller: 'CategoriesController as ctrl',
       resolve: {
         categories: ['MenuDataService', function (MenuDataService) {
           return MenuDataService.getAllCategories();
         }]
       }
+    })
+  
+    // Items in Category Page
+    .state('items', {
+      url: '/items/{categoryShortName}',
+      templateUrl: 'src/menuapp/templates/items.template.html',
+      controller: "ItemsController as itemCtrl",
+      resolve:{
+        items: ['MenuDataService','$stateParams', function(MenuDataService, $stateParams){
+          return MenuDataService.getItemsForCategory($stateParams.categoryShortName);
+        }]
+      }
     });
-  
-    // .state('mainList.itemDetail', {
-    //   url: '/item-detail/{itemId}',
-    //   templateUrl: 'src/shoppinglist/templates/item-detail.template.html',
-    //   controller: "ItemDetailController as itemDetail"
-    // });
-  
   }
   
   })();

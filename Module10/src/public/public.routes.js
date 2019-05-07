@@ -30,6 +30,17 @@ function routeConfig ($stateProvider) {
         }]
       }
     })
+    .state('public.myinfo',{
+      url: '/myinfo',
+      templateUrl: 'src/public/my-info/my-info.html',
+      controller: 'MyInfoController',
+      controllerAs: 'myInfoCtrl', 
+      resolve: {
+        menuItems: ['$stateParams','MenuService', function ($stateParams, MenuService) {
+          return MenuService.getMenuItems($stateParams.category);
+        }]
+      }
+    })
     .state('public.menuitems', {
       url: '/menu/{category}',
       templateUrl: 'src/public/menu-items/menu-items.html',

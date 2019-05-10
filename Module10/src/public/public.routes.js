@@ -34,12 +34,13 @@ function routeConfig ($stateProvider) {
       url: '/myinfo',
       templateUrl: 'src/public/my-info/my-info.html',
       controller: 'MyInfoController',
-      controllerAs: 'myInfoCtrl', 
-      resolve: {
-        menuItems: ['$stateParams','MenuService', function ($stateParams, MenuService) {
-          return MenuService.getMenuItems($stateParams.category);
-        }]
-      }
+      controllerAs: 'myInfoCtrl'
+    })
+    .state('public.signup',{
+      url: '/signup',
+      templateUrl: 'src/public/sign-up/sign-up.html',
+      controller: 'SignUpController',
+      controllerAs: 'signUpCtrl'
     })
     .state('public.menuitems', {
       url: '/menu/{category}',

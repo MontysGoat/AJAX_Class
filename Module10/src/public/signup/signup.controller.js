@@ -3,11 +3,13 @@
   
   angular.module('public')
   .controller('SignUpController', SignUpController);
-  
-  function SignUpController() {
-    var ctrl = this;
+
+  SignUpController.$inject = ['allMenuItems'];  
+  function SignUpController(allMenuItems) {
+    var $ctrl = this;
+    $ctrl.allMenuItems = allMenuItems;
     
-    ctrl.submit = function () {
+    $ctrl.submit = function () {
       ctrl.completed = true;
     };
   }

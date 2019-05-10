@@ -12,6 +12,10 @@
     $ctrl.submit = function () {
       ctrl.completed = true;
     };
+
+    $ctrl.dishExists = function (value) {
+      return $ctrl.allMenuItems.includes(value);
+    }
   }
   
   })();

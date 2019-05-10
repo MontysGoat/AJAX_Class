@@ -50,15 +50,15 @@
 
         <input type="text" name="favoritedish" placeholder="Favorite Dish"
           ng-model="signUpCtrl.user.favoritedish"
-          ui-validate="{"
+          ui-validate=" 'dishExists($value)' "
           required>
           {{ signUpCtrl.user.favoritedish }}
           <span
             ng-if="regForm.favoritedish.$error.required && regForm.favoritedish.$touched">
             Favorite Dish is required
           </span>
-          <span ng-if="regForm.">
-            Favorit Dish Not Found! Please try again.
+          <span ng-if="regForm.favoritedish.$error.validator">
+            Favorite Dish Not Found! Please try again.
           </span>
           <br>
   

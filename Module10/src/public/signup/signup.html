@@ -7,11 +7,10 @@
         <input type="text" name="firstname" placeholder="First Name"
           ng-model="signUpCtrl.user.firstname"
           required
-          minlength="1"
           ng-maxlength="32">
           {{ signUpCtrl.user.firstname }}
           <span
-            ng-if="(regForm.firstname.$error.minlength || regForm.firstname.$error.required) && regForm.firstname.$touched">
+            ng-if="regForm.firstname.$error.required && regForm.firstname.$touched">
             First name is required
           </span>
           <span ng-if="regForm.firstname.$error.maxlength && regForm.firstname.$touched">
@@ -22,11 +21,10 @@
         <input type="text" name="lastname" placeholder="Last Name"
           ng-model="signUpCtrl.user.lastname"
           required
-          minlength="1"
           ng-maxlength="32">
           {{ signUpCtrl.user.lastname }}
           <span
-            ng-if="(regForm.lastname.$error.minlength || regForm.lastname.$error.required) && regForm.lastname.$touched">
+            ng-if="regForm.lastname.$error.required && regForm.lastname.$touched">
             Last name is required
           </span>
           <span ng-if="regForm.lastname.$error.maxlength && regForm.lastname.$touched">
@@ -47,6 +45,20 @@
           pattern="(\d{3})-(\d{3})-(\d{4})">
           <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
             Phone must be in the format ###-###-####.
+          </span>
+          <br>
+
+        <input type="text" name="favoritedish" placeholder="Favorite Dish"
+          ng-model="signUpCtrl.user.favoritedish"
+          ui-validate="{"
+          required>
+          {{ signUpCtrl.user.favoritedish }}
+          <span
+            ng-if="regForm.favoritedish.$error.required && regForm.favoritedish.$touched">
+            Favorite Dish is required
+          </span>
+          <span ng-if="regForm.">
+            Favorit Dish Not Found! Please try again.
           </span>
           <br>
   

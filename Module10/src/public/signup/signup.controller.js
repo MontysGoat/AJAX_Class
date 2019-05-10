@@ -7,7 +7,7 @@
   SignUpController.$inject = ['allMenuItems'];  
   function SignUpController(allMenuItems) {
     var $ctrl = this;
-    $ctrl.allMenuItems = allMenuItems.map(x => x.short_name);
+    $ctrl.allMenuItems = allMenuItems.menu_items.map(x => x.short_name);
     
     $ctrl.submit = function () {
       ctrl.completed = true;

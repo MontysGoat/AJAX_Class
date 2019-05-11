@@ -50,7 +50,7 @@
 
         <input type="text" name="favoritedish" placeholder="Favorite Dish"
           ng-model="signUpCtrl.user.favoritedish"
-          ui-validate="{dishExists: 'dishExists($value)' }"
+          ui-validate="{dishExists: 'signUpCtrl.dishExists($value)' }"
           required>
           {{ signUpCtrl.user.favoritedish }}
           <span

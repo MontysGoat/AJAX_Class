@@ -44,6 +44,9 @@ function routeConfig ($stateProvider) {
       resolve: {
         allMenuItems: ['MenuService', function (MenuService) {
           return MenuService.getMenuItems();
+        }],
+        addUser: ['UsersService', function (UsersService) {
+          return UsersService.addUser;
         }]
       }
     })

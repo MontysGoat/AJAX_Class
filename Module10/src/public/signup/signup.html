@@ -6,36 +6,30 @@
 
         <input type="text" name="firstname" placeholder="First Name"
           ng-model="signUpCtrl.user.firstname"
-          required
-          ng-maxlength="32">
-          {{ signUpCtrl.user.firstname }}
+          required>
           <span
             ng-if="regForm.firstname.$error.required && regForm.firstname.$touched">
             First name is required
-          </span>
-          <span ng-if="regForm.firstname.$error.maxlength && regForm.firstname.$touched">
-            First name cannot be longer than 32 characters.
           </span>
           <br>
 
         <input type="text" name="lastname" placeholder="Last Name"
           ng-model="signUpCtrl.user.lastname"
-          required
-          ng-maxlength="32">
-          {{ signUpCtrl.user.lastname }}
+          required>
           <span
             ng-if="regForm.lastname.$error.required && regForm.lastname.$touched">
             Last name is required
-          </span>
-          <span ng-if="regForm.lastname.$error.maxlength && regForm.lastname.$touched">
-            Last name cannot be longer than 32 characters.
           </span>
           <br>
   
         <input type="email" name="email" placeholder="Email"
           ng-model="signUpCtrl.user.email"
           required>
-          <span ng-if="regForm.email.$invalid && regForm.email.$touched">
+          <span
+            ng-if="regForm.email.$error.required && regForm.email.$touched">
+            Email is required
+          </span>
+          <span ng-if="!regForm.email.$error.required && regForm.email.$invalid && regForm.email.$touched">
             Must be a valid email address: handle@domain format
           </span>
           <br>
@@ -52,7 +46,6 @@
           ng-model="signUpCtrl.user.favoritedish"
           ui-validate="{dishExists: 'signUpCtrl.dishExists($value)' }"
           required>
-          {{ signUpCtrl.user.favoritedish }}
           <span
             ng-if="regForm.favoritedish.$error.required && regForm.favoritedish.$touched">
             Favorite Dish is required
@@ -67,15 +60,8 @@
           ng-click="signUpCtrl.submit()">Submit</button>
   
           <div style="margin-top: 10px;">
-            Form valid? {{ regForm.$valid }}
           </div>
       </form>
     </fieldset>
-  
-    <div id="info" ng-if="signUpCtrl.completed">
-      Username: {{ signUpCtrl.user.username}} <br>
-      Email: {{ signUpCtrl.user.email}} <br>
-      Phone: {{ signUpCtrl.user.phone }}
-    </div>
   
   

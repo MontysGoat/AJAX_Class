@@ -4,8 +4,8 @@
   angular.module('public')
   .controller('SignUpController', SignUpController);
 
-  SignUpController.$inject = ['allMenuItems'];  
-  function SignUpController(allMenuItems) {
+  SignUpController.$inject = ['allMenuItems', 'addUser'];  
+  function SignUpController(allMenuItems, addUser) {
     var $ctrl = this;
     var allMenuItems = allMenuItems.menu_items.map(x => x.short_name.toUpperCase());
     
@@ -15,6 +15,10 @@
 
     $ctrl.dishExists = function (value) {
       return allMenuItems.includes(value.toUpperCase());
+    }
+
+    $ctrl.submit = function () {
+      addUser($ctrl.user);
     }
   }
   

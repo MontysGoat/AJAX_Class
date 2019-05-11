@@ -113,6 +113,9 @@ h3.menu-item-title {
 }
 /* END SINGLE CATEGORY PAGE */
 
+input, textarea{
+  color:#000;
+}
 
 /********** Large devices only **********/
 @media (min-width: 1200px) {

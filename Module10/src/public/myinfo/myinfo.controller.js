@@ -12,8 +12,8 @@ function MyInfoController(allMenuItems, getUser) {
   $ctrl.userExists = $ctrl.user != undefined;
 
   if($ctrl.userExists){
-    $ctrl.favoriteDish = allMenuItems.menu_items
-                         .filter(item => item.short_name == $ctrl.user.favoriteDish);
+    $ctrl.favoritedish = allMenuItems.menu_items
+                         .find(item => item.short_name == $ctrl.user.favoritedish);
   } 
 }
 
